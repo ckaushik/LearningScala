@@ -1,0 +1,2 @@
+# LearningScala
+Function Programming Sessions
