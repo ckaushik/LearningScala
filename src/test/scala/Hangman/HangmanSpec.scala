@@ -25,8 +25,13 @@ class HangmanSpec extends FlatSpec with Matchers with BeforeAndAfterAll {
     hangman.print should be ("_ _ l l _")
   }
 
-  "Hangman show" should "not print wrongly guessed chars" in {
+  "Hangman isComplete" should "be false until all chars are guessed" in {
     var hangman = new Hangman("hello", List[Char]('l', 'x'), 5)
-    hangman.print should be ("_ _ l l _")
+    hangman.isComplete should be (false)
+  }
+
+  "Hangman isComplete" should "be true if all chars are guessed" in {
+    var hangman = new Hangman("hello", List[Char]('l', 'x', 'h', 'e', 'o'), 4)
+    hangman.isComplete should be (true)
   }
 }

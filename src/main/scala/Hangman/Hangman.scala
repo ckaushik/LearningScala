@@ -7,6 +7,10 @@ case class Hangman(word: String, guessedWords: List[Char], numberOfTries: Int){
     }
   }
 
+  def isComplete: Boolean = {
+    word.forall((x) => guessedWords contains x)
+  }
+
   def print: String = {
     word.map((x) => if (guessedWords contains x) x else '_') mkString " "
   }
